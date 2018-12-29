@@ -1,9 +1,16 @@
 #!/bin/bash
+# ------------------------------------------------------------------
+#                   [Ruvik M] Several functions
+# ------------------------  Description ----------------------------
+#           Block Devices / File-system / Partitions
+# ------------------------------------------------------------------
 
+# --- Block devices ------------------------------------------------
 get_block_devices () {
 fdisk -l | grep Disk | grep -v identifier | awk '{print $2}' | cut -d : -f1
 }
 
+# --- File-system  -------------------------------------------------
 list_filesystems () {
 ls /lib/modules/$(uname -r)/kernel/fs
 }
